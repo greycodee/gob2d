@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   schedule: 
-    - cron: 0 0/2 * * *
+    - cron: 0 21 * * * 
 
 jobs:
 
@@ -20,5 +20,6 @@ jobs:
 
     - name: Build
       run: |
+        date
         go build .
         ./bding -secret ${{ secrets.DING_SECRETS }} -token ${{ secrets.DING_ACCESS_TOKEN }}
